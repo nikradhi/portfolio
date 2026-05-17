@@ -757,6 +757,135 @@
   .contact-confetti-a { top: 18px; left: 26px; }
   .contact-confetti-b { bottom: 22px; right: 30px; transform: rotate(160deg); }
 
+  /* ---------- Contact: two-column layout ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+  .contact-info,
+  .contact-form {
+    border: var(--border-w) solid var(--foreground);
+    border-radius: var(--radius-md);
+    box-shadow: var(--pop-hover);
+    padding: 32px;
+  }
+  .contact-info {
+    background-color: var(--tertiary);
+    background-image: radial-gradient(rgba(30,41,59,0.13) 1.2px, transparent 1.3px);
+    background-size: 18px 18px;
+  }
+  .contact-info h3 { font-size: 1.5rem; margin-bottom: 24px; }
+  .info-list { display: flex; flex-direction: column; gap: 18px; }
+  .info-item { display: flex; align-items: center; gap: 14px; }
+  .info-item .icon-circle { width: 46px; height: 46px; box-shadow: var(--pop-active); }
+  .info-text { display: flex; flex-direction: column; line-height: 1.25; }
+  .info-label {
+    font-family: "Outfit", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    opacity: 0.65;
+  }
+  .info-text a,
+  .info-text .info-value {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--foreground);
+  }
+  .info-text a:hover { color: #fff; }
+
+  .contact-form {
+    background: var(--accent);
+    color: #fff;
+  }
+  .contact-form h3 { font-size: 1.5rem; color: #fff; margin-bottom: 6px; }
+  .form-intro {
+    color: rgba(255,255,255,0.88);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.95rem;
+    color: var(--foreground);
+    background: #fff;
+    border: var(--border-w) solid var(--foreground);
+    border-radius: var(--radius-full);
+    padding: 13px 20px;
+    box-shadow: 4px 4px 0 0 transparent;
+    transition: box-shadow 0.25s var(--ease-bounce), border-color 0.2s ease;
+  }
+  .field textarea {
+    border-radius: var(--radius-md);
+    min-height: 130px;
+    resize: vertical;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--muted-fg); }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--foreground);
+    box-shadow: 4px 4px 0 0 var(--tertiary);
+  }
+  .field.invalid input,
+  .field.invalid textarea {
+    border-color: var(--secondary);
+    box-shadow: 4px 4px 0 0 var(--secondary);
+  }
+  .error-msg {
+    display: none;
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.76rem;
+    color: var(--tertiary);
+    margin-top: 6px;
+  }
+  .field.invalid .error-msg { display: block; }
+  .btn--form {
+    background: #fff;
+    color: var(--accent);
+    box-shadow: var(--pop);
+    margin-top: 4px;
+  }
+  .btn--form:hover { transform: translate(-2px,-2px); box-shadow: var(--pop-hover); }
+  .btn--form:active { transform: translate(2px,2px); box-shadow: var(--pop-active); }
+  .btn--form .btn-arrow { background: var(--accent); color: #fff; }
+  .form-success {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--quaternary);
+    border: var(--border-w) solid var(--foreground);
+    border-radius: var(--radius-sm);
+    color: var(--foreground);
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
   /* =====================================================================
      FOOTER
      ===================================================================== */
@@ -1196,23 +1325,85 @@
 
     <!-- ============ CONTACT ============ -->
     <section class="section container" id="contact">
-      <div class="contact-card card reveal">
-        <span class="confetti confetti--circle contact-confetti-a" aria-hidden="true"></span>
-        <span class="confetti confetti--tri contact-confetti-b" aria-hidden="true"></span>
-
-        <span class="pill badge"><span class="dot"></span> OPEN FOR WORK</span>
-        <h2>Let's build something <span class="squiggle-word">together</span></h2>
+      <div class="section-head reveal">
+        <span class="pill badge">GET IN TOUCH</span>
+        <h2>Get In <span class="squiggle-word">Touch</span></h2>
         <p class="section-sub">
-          Ada idea projek atau peluang kerja? Saya sentiasa terbuka untuk berbual.
+          Ada idea projek? Mahu say hi? Saya sentiasa terbuka untuk berbincang
+          idea dan peluang baharu.
         </p>
-        <div class="hero-cta">
-          <a href="mailto:nikradhi@gmail.com" class="btn btn--primary">
-            Email Me
-            <span class="btn-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </a>
-          <a href="https://linkedin.com/in/[username]" class="btn btn--secondary" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Contact Info</h3>
+          <ul class="info-list">
+            <li class="info-item">
+              <span class="icon-circle icon-circle--light" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M3.5 7.2l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="info-text">
+                <span class="info-label">Email</span>
+                <a href="mailto:nikradhi@gmail.com">nikradhi@gmail.com</a>
+              </div>
+            </li>
+            <li class="info-item">
+              <span class="icon-circle icon-circle--light" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9Z"/></svg>
+              </span>
+              <div class="info-text">
+                <span class="info-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/[username]" target="_blank" rel="noopener">[username]</a>
+              </div>
+            </li>
+            <li class="info-item">
+              <span class="icon-circle icon-circle--light" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/></svg>
+              </span>
+              <div class="info-text">
+                <span class="info-label">GitHub</span>
+                <a href="https://github.com/[username]" target="_blank" rel="noopener">[username]</a>
+              </div>
+            </li>
+            <li class="info-item">
+              <span class="icon-circle icon-circle--light" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+              </span>
+              <div class="info-text">
+                <span class="info-label">Location</span>
+                <span class="info-value">Terengganu, Malaysia</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form reveal">
+          <h3>Let's Talk</h3>
+          <p class="form-intro">Hantar mesej dan saya akan balas secepat mungkin.</p>
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="cf-name">Name *</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" />
+              <span class="error-msg">Please enter your name</span>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email *</label>
+              <input type="email" id="cf-email" name="email" placeholder="youremail@example.com" />
+              <span class="error-msg">Please enter a valid email</span>
+            </div>
+            <div class="field">
+              <label for="cf-message">Message *</label>
+              <textarea id="cf-message" name="message" placeholder="Tell me about your project or just say hi..."></textarea>
+              <span class="error-msg">Please enter a message</span>
+            </div>
+            <button type="submit" class="btn btn--form">
+              <span class="btn-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Send Message
+            </button>
+            <p class="form-success" id="formSuccess">Terima kasih! Aplikasi emel anda akan terbuka dengan mesej sedia untuk dihantar.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -1298,6 +1489,36 @@
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
     revealItems.forEach((el) => revealObserver.observe(el));
+  }
+
+  // ---------- Contact form: validate + open email ----------
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true;
+      contactForm.querySelectorAll(".field").forEach((field) => {
+        const input = field.querySelector("input, textarea");
+        const value = input.value.trim();
+        let ok = value.length > 0;
+        if (ok && input.type === "email") ok = emailRe.test(value);
+        field.classList.toggle("invalid", !ok);
+        if (!ok) valid = false;
+      });
+      if (!valid) return;
+      const name = document.getElementById("cf-name").value.trim();
+      const email = document.getElementById("cf-email").value.trim();
+      const message = document.getElementById("cf-message").value.trim();
+      const subject = encodeURIComponent("Portfolio enquiry from " + name);
+      const body = encodeURIComponent(message + "\n\n-- " + name + " (" + email + ")");
+      window.location.href = "mailto:nikradhi@gmail.com?subject=" + subject + "&body=" + body;
+      document.getElementById("formSuccess").style.display = "block";
+      contactForm.reset();
+    });
+    contactForm.querySelectorAll("input, textarea").forEach((el) => {
+      el.addEventListener("input", () => el.closest(".field").classList.remove("invalid"));
+    });
   }
   </script>
 </body>
